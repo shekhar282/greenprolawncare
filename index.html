@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenPro Lawn Care | Professional Lawn Services in Toronto & GTA</title>
+    <meta name="description" content="Professional lawn care services in Toronto and the Greater Toronto Area. Lawn mowing, fertilization, aeration, landscaping and more. Get a free quote today!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-deep: #1a3a2a;
+            --green-rich: #2d6a4f;
+            --green-mid: #40916c;
+            --green-light: #52b788;
+            --green-pale: #b7e4c7;
+            --green-wash: #d8f3dc;
+            --cream: #fefae0;
+            --earth: #6b4f36;
+            --earth-light: #a68a6e;
+            --gold: #dda15e;
+            --gold-bright: #f4a431;
+            --white: #ffffff;
+            --off-white: #f8f7f4;
+            --text-dark: #1a2e1a;
+            --text-mid: #3d5a3d;
+            --text-light: #6b8a6b;
+            --shadow-sm: 0 2px 8px rgba(26,58,42,0.08);
+            --shadow-md: 0 8px 30px rgba(26,58,42,0.12);
+            --shadow-lg: 0 20px 60px rgba(26,58,42,0.15);
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-dark);
+            background: var(--off-white);
+            overflow-x: hidden;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(248,247,244,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(26,58,42,0.06);
+            transition: all 0.4s ease;
+        }
+        nav.scrolled {
+            background: rgba(248,247,244,0.95);
+            box-shadow: var(--shadow-sm);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            padding: 16px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 10px;
+            text-decoration: none; color: var(--green-deep);
+        }
+        .logo-icon {
+            width: 42px; height: 42px;
+            background: var(--green-rich);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 20px;
+            box-shadow: 0 4px 12px rgba(45,106,79,0.3);
+        }
+        .logo-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px; letter-spacing: -0.5px;
+        }
+        .logo-text span { color: var(--green-rich); }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a {
+            text-decoration: none; color: var(--text-mid);
+            font-weight: 500; font-size: 15px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--green-rich); }
+        .nav-cta {
+            background: var(--green-rich) !important; color: white !important;
+            padding: 10px 24px; border-radius: 50px;
+            font-weight: 600 !important;
+            transition: all 0.3s !important;
+            box-shadow: 0 4px 15px rgba(45,106,79,0.25);
+        }
+        .nav-cta:hover {
+            background: var(--green-deep) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(45,106,79,0.35);
+        }
+        .mobile-menu-btn {
+            display: none; background: none; border: none;
+            font-size: 28px; cursor: pointer; color: var(--green-deep);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex; align-items: center;
+            position: relative;
+            background: linear-gradient(165deg, var(--green-wash) 0%, var(--off-white) 40%, var(--cream) 100%);
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; top: -20%; right: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(82,183,136,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute; bottom: -10%; left: -5%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(221,161,94,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-inner {
+            max-width: 1200px; margin: 0 auto;
+            padding: 60px 24px;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 60px; align-items: center;
+            position: relative; z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(45,106,79,0.08);
+            border: 1px solid rgba(45,106,79,0.12);
+            padding: 8px 18px; border-radius: 50px;
+            font-size: 13px; font-weight: 600;
+            color: var(--green-rich);
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .hero-badge::before {
+            content: '🌿';
+        }
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(40px, 5.5vw, 64px);
+            line-height: 1.08;
+            color: var(--green-deep);
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+        .hero h1 em {
+            font-style: normal;
+            color: var(--green-rich);
+            position: relative;
+        }
+        .hero h1 em::after {
+            content: '';
+            position: absolute; bottom: 4px; left: 0; right: 0;
+            height: 8px;
+            background: var(--green-pale);
+            opacity: 0.5;
+            border-radius: 4px;
+            z-index: -1;
+        }
+        .hero p {
+            font-size: 18px; line-height: 1.7;
+            color: var(--text-mid);
+            max-width: 480px;
+            margin-bottom: 36px;
+        }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-primary {
+            background: var(--green-rich);
+            color: white; padding: 16px 36px;
+            border-radius: 50px; border: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px; font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 25px rgba(45,106,79,0.3);
+        }
+        .btn-primary:hover {
+            background: var(--green-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 35px rgba(45,106,79,0.4);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--green-deep);
+            padding: 16px 36px;
+            border-radius: 50px;
+            border: 2px solid rgba(26,58,42,0.15);
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px; font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            border-color: var(--green-rich);
+            color: var(--green-rich);
+            transform: translateY(-2px);
+        }
+        .hero-visual {
+            position: relative;
+        }
+        .hero-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green-light), var(--gold));
+        }
+        .hero-card-icon {
+            width: 64px; height: 64px;
+            background: var(--green-wash);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .hero-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px; margin-bottom: 12px;
+            color: var(--green-deep);
+        }
+        .hero-card p {
+            font-size: 15px; color: var(--text-mid);
+            line-height: 1.6; margin-bottom: 20px;
+        }
+        .stat-row {
+            display: grid; grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px; margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(26,58,42,0.08);
+        }
+        .stat { text-align: center; }
+        .stat-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px; color: var(--green-rich);
+        }
+        .stat-label {
+            font-size: 12px; color: var(--text-light);
+            text-transform: uppercase; letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+        .floating-badge {
+            position: absolute;
+            background: white;
+            border-radius: 14px;
+            padding: 14px 20px;
+            box-shadow: var(--shadow-md);
+            display: flex; align-items: center; gap: 10px;
+            font-weight: 600; font-size: 14px;
+            animation: float 6s ease-in-out infinite;
+        }
+        .floating-badge.top-right {
+            top: -20px; right: -20px;
+            color: var(--green-rich);
+        }
+        .floating-badge.bottom-left {
+            bottom: -15px; left: -20px;
+            color: var(--earth);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* ── SERVICES ── */
+        .services {
+            padding: 120px 24px;
+            background: var(--white);
+            position: relative;
+        }
+        .section-header {
+            text-align: center;
+            max-width: 600px; margin: 0 auto 64px;
+        }
+        .section-tag {
+            display: inline-block;
+            font-size: 13px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1.5px;
+            color: var(--green-rich);
+            margin-bottom: 16px;
+        }
+        .section-header h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(32px, 4vw, 44px);
+            color: var(--green-deep);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .section-header p {
+            font-size: 17px; color: var(--text-mid);
+            line-height: 1.7;
+        }
+        .services-grid {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .service-card {
+            background: var(--off-white);
+            border-radius: var(--radius);
+            padding: 36px;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green-light), var(--green-rich));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .service-card:hover {
+            background: white;
+            border-color: rgba(45,106,79,0.1);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        .service-card:hover::after { opacity: 1; }
+        .service-icon {
+            width: 56px; height: 56px;
+            background: var(--green-wash);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        .service-card:hover .service-icon {
+            background: var(--green-rich);
+            transform: scale(1.05);
+        }
+        .service-card:hover .service-icon span {
+            filter: brightness(10);
+        }
+        .service-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 20px; margin-bottom: 10px;
+            color: var(--green-deep);
+        }
+        .service-card p {
+            font-size: 15px; color: var(--text-mid);
+            line-height: 1.65;
+        }
+
+        /* ── WHY US ── */
+        .why-us {
+            padding: 120px 24px;
+            background: var(--green-deep);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .why-us::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(82,183,136,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(221,161,94,0.05) 0%, transparent 50%);
+        }
+        .why-us .section-tag { color: var(--green-light); }
+        .why-us .section-header h2 { color: white; }
+        .why-us .section-header p { color: rgba(255,255,255,0.7); }
+        .why-grid {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            position: relative; z-index: 1;
+        }
+        .why-item { text-align: center; padding: 20px; }
+        .why-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 48px;
+            color: var(--green-light);
+            margin-bottom: 12px;
+        }
+        .why-item h4 {
+            font-size: 17px; font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .why-item p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+
+        /* ── PROCESS ── */
+        .process {
+            padding: 120px 24px;
+            background: linear-gradient(180deg, var(--white) 0%, var(--off-white) 100%);
+        }
+        .process-steps {
+            max-width: 900px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px; left: 15%; right: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--green-pale), var(--green-light), var(--green-pale));
+        }
+        .step { text-align: center; position: relative; }
+        .step-num {
+            width: 80px; height: 80px;
+            background: white;
+            border: 3px solid var(--green-light);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px; color: var(--green-rich);
+            margin: 0 auto 20px;
+            position: relative; z-index: 1;
+            box-shadow: var(--shadow-sm);
+        }
+        .step h4 {
+            font-size: 18px; font-weight: 600;
+            color: var(--green-deep);
+            margin-bottom: 8px;
+        }
+        .step p {
+            font-size: 14px; color: var(--text-mid);
+            line-height: 1.6;
+        }
+
+        /* ── TESTIMONIALS ── */
+        .testimonials {
+            padding: 120px 24px;
+            background: var(--off-white);
+        }
+        .testimonial-grid {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .testimonial-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+        .stars {
+            color: var(--gold-bright);
+            font-size: 18px;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+        .testimonial-card blockquote {
+            font-size: 15px; line-height: 1.7;
+            color: var(--text-mid);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .testimonial-author {
+            display: flex; align-items: center; gap: 12px;
+        }
+        .author-avatar {
+            width: 44px; height: 44px;
+            background: var(--green-wash);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; color: var(--green-rich);
+            font-size: 16px;
+        }
+        .author-name {
+            font-weight: 600; font-size: 15px;
+            color: var(--green-deep);
+        }
+        .author-loc {
+            font-size: 13px; color: var(--text-light);
+        }
+
+        /* ── SERVICE AREAS ── */
+        .areas {
+            padding: 100px 24px;
+            background: var(--white);
+        }
+        .areas-inner {
+            max-width: 900px; margin: 0 auto;
+            text-align: center;
+        }
+        .area-tags {
+            display: flex; flex-wrap: wrap;
+            justify-content: center; gap: 12px;
+            margin-top: 10px;
+        }
+        .area-tag {
+            padding: 10px 22px;
+            background: var(--green-wash);
+            color: var(--green-deep);
+            border-radius: 50px;
+            font-size: 14px; font-weight: 500;
+            transition: all 0.3s;
+        }
+        .area-tag:hover {
+            background: var(--green-rich);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* ── CTA ── */
+        .cta {
+            padding: 120px 24px;
+            background: linear-gradient(165deg, var(--green-rich) 0%, var(--green-deep) 100%);
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(circle at 30% 70%, rgba(255,255,255,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(221,161,94,0.08) 0%, transparent 50%);
+        }
+        .cta-inner {
+            position: relative; z-index: 1;
+            max-width: 650px; margin: 0 auto;
+        }
+        .cta h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(32px, 4vw, 48px);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .cta p {
+            font-size: 18px; line-height: 1.7;
+            opacity: 0.85; margin-bottom: 36px;
+        }
+        .btn-white {
+            background: white;
+            color: var(--green-deep);
+            padding: 18px 42px;
+            border-radius: 50px; border: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 17px; font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--green-deep);
+            color: rgba(255,255,255,0.7);
+            padding: 60px 24px 30px;
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+        }
+        .footer-brand .logo-text {
+            color: white; font-size: 24px;
+            margin-bottom: 12px;
+        }
+        .footer-brand p {
+            font-size: 14px; line-height: 1.7;
+            max-width: 320px;
+        }
+        footer h5 {
+            color: white; font-size: 15px;
+            font-weight: 600; margin-bottom: 16px;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 10px; }
+        footer ul a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none; font-size: 14px;
+            transition: color 0.3s;
+        }
+        footer ul a:hover { color: var(--green-light); }
+        .footer-contact li {
+            display: flex; align-items: flex-start; gap: 10px;
+            font-size: 14px;
+        }
+        .footer-bottom {
+            max-width: 1200px; margin: 40px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 13px;
+        }
+
+        /* ── ANIMATIONS ── */
+        .fade-up {
+            opacity: 0; transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-up.visible {
+            opacity: 1; transform: translateY(0);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 968px) {
+            .hero-inner { grid-template-columns: 1fr; text-align: center; }
+            .hero p { margin-left: auto; margin-right: auto; }
+            .hero-actions { justify-content: center; }
+            .hero-visual { max-width: 500px; margin: 0 auto; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonial-grid { grid-template-columns: 1fr; max-width: 500px; }
+            .footer-inner { grid-template-columns: 1fr; }
+            .floating-badge { display: none; }
+        }
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-links.open {
+                display: flex; flex-direction: column;
+                position: absolute; top: 100%; left: 0; right: 0;
+                background: white;
+                padding: 24px;
+                box-shadow: var(--shadow-md);
+                gap: 16px;
+            }
+            .services-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr; gap: 32px; }
+            .process-steps::before { display: none; }
+            .hero-actions { flex-direction: column; align-items: center; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="#" class="logo">
+            <div class="logo-icon">🌱</div>
+            <div class="logo-text">Green<span>Pro</span></div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#why">Why Us</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact" class="nav-cta">Free Quote</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-content">
+            <div class="hero-badge">Serving Toronto & GTA</div>
+            <h1>Your Lawn<br>Deserves the <em>Pro Touch</em></h1>
+            <p>Professional lawn care and landscaping services tailored to your property. We keep your outdoor spaces lush, healthy, and beautiful — all season long.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">Get Free Quote →</a>
+                <a href="#services" class="btn-secondary">Our Services</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card">
+                <div class="hero-card-icon">🏡</div>
+                <h3>Transform Your Outdoor Space</h3>
+                <p>From routine mowing to complete lawn renovation — we handle everything so you can enjoy your yard without the work.</p>
+                <div class="stat-row">
+                    <div class="stat">
+                        <div class="stat-num">100+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">5★</div>
+                        <div class="stat-label">Rating</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">GTA</div>
+                        <div class="stat-label">Wide Coverage</div>
+                    </div>
+                </div>
+            </div>
+            <div class="floating-badge top-right">✅ Fully Insured</div>
+            <div class="floating-badge bottom-left">🌿 Eco-Friendly</div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+    <div class="section-header fade-up">
+        <span class="section-tag">Our Services</span>
+        <h2>Everything Your Lawn Needs</h2>
+        <p>Comprehensive lawn care solutions to keep your property looking its best through every season.</p>
+    </div>
+    <div class="services-grid">
+        <div class="service-card fade-up">
+            <div class="service-icon"><span>🌾</span></div>
+            <h3>Lawn Mowing</h3>
+            <p>Regular mowing with professional-grade equipment. We cut at the optimal height for your grass type to promote healthy growth.</p>
+        </div>
+        <div class="service-card fade-up">
+            <div class="service-icon"><span>🌱</span></div>
+            <h3>Fertilization</h3>
+            <p>Custom fertilization programs tailored to your soil conditions. We use premium products for a thick, green, weed-resistant lawn.</p>
+        </div>
+        <div class="service-card fade-up">
+            <div class="service-icon"><span>🌀</span></div>
+            <h3>Aeration & Overseeding</h3>
+            <p>Core aeration to reduce compaction and overseeding to fill in thin spots. Essential for a lush, resilient lawn.</p>
+        </div>
+        <div class="service-card fade-up">
+            <div class="service-icon"><span>🍂</span></div>
+            <h3>Spring & Fall Cleanup</h3>
+            <p>Thorough seasonal cleanups including leaf removal, debris clearing, bed edging, and preparing your lawn for the months ahead.</p>
+        </div>
+        <div class="service-card fade-up">
+            <div class="service-icon"><span>✂️</span></div>
+            <h3>Hedge & Shrub Trimming</h3>
+            <p>Expert trimming and shaping to keep hedges, shrubs, and ornamental plants looking neat and well-maintained.</p>
+        </div>
+        <div class="service-card fade-up">
+            <div class="service-icon"><span>🌻</span></div>
+            <h3>Garden & Landscape</h3>
+            <p>Garden bed maintenance, mulching, planting, and landscape enhancements to boost your property's curb appeal.</p>
+        </div>
+    </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us" id="why">
+    <div class="section-header fade-up">
+        <span class="section-tag">Why Choose Us</span>
+        <h2>The GreenPro Difference</h2>
+        <p>We're not just another lawn care company. Here's what sets us apart.</p>
+    </div>
+    <div class="why-grid">
+        <div class="why-item fade-up">
+            <div class="why-num">01</div>
+            <h4>Reliable & On-Time</h4>
+            <p>We show up when we say we will. Every visit, every time. Your schedule matters to us.</p>
+        </div>
+        <div class="why-item fade-up">
+            <div class="why-num">02</div>
+            <h4>Fair, Honest Pricing</h4>
+            <p>Transparent quotes with no hidden fees. You know exactly what you're paying for.</p>
+        </div>
+        <div class="why-item fade-up">
+            <div class="why-num">03</div>
+            <h4>Eco-Friendly Methods</h4>
+            <p>Sustainable practices and products that are safe for your family, pets, and the environment.</p>
+        </div>
+        <div class="why-item fade-up">
+            <div class="why-num">04</div>
+            <h4>Satisfaction Guaranteed</h4>
+            <p>Not happy with our work? We'll come back and make it right — no questions asked.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+    <div class="section-header fade-up">
+        <span class="section-tag">How It Works</span>
+        <h2>Simple as 1-2-3</h2>
+        <p>Getting started with GreenPro is easy.</p>
+    </div>
+    <div class="process-steps">
+        <div class="step fade-up">
+            <div class="step-num">1</div>
+            <h4>Request a Quote</h4>
+            <p>Tell us about your property and what you need. We'll get back to you within 24 hours.</p>
+        </div>
+        <div class="step fade-up">
+            <div class="step-num">2</div>
+            <h4>Get Your Plan</h4>
+            <p>We'll visit your property, assess the lawn, and create a customized care plan and quote.</p>
+        </div>
+        <div class="step fade-up">
+            <div class="step-num">3</div>
+            <h4>Enjoy Your Lawn</h4>
+            <p>Sit back and relax while we handle everything. Your lawn has never looked this good.</p>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="reviews">
+    <div class="section-header fade-up">
+        <span class="section-tag">Testimonials</span>
+        <h2>What Our Clients Say</h2>
+        <p>Don't just take our word for it.</p>
+    </div>
+    <div class="testimonial-grid">
+        <div class="testimonial-card fade-up">
+            <div class="stars">★★★★★</div>
+            <blockquote>"GreenPro transformed our front yard. The lawn is greener than ever and the neighbours keep asking who we use. Highly recommend!"</blockquote>
+            <div class="testimonial-author">
+                <div class="author-avatar">RP</div>
+                <div>
+                    <div class="author-name">Raj P.</div>
+                    <div class="author-loc">Brampton, ON</div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card fade-up">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Reliable, professional, and great value. They show up on time every week and my lawn looks amazing. Best decision I made this year."</blockquote>
+            <div class="testimonial-author">
+                <div class="author-avatar">SM</div>
+                <div>
+                    <div class="author-name">Sarah M.</div>
+                    <div class="author-loc">Mississauga, ON</div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card fade-up">
+            <div class="stars">★★★★★</div>
+            <blockquote>"We tried three other companies before GreenPro. Night and day difference. They actually care about the quality of their work."</blockquote>
+            <div class="testimonial-author">
+                <div class="author-avatar">DK</div>
+                <div>
+                    <div class="author-name">David K.</div>
+                    <div class="author-loc">Scarborough, ON</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="areas" id="areas">
+    <div class="areas-inner">
+        <div class="section-header fade-up">
+            <span class="section-tag">Service Areas</span>
+            <h2>Proudly Serving the GTA</h2>
+            <p>Professional lawn care across the Greater Toronto Area.</p>
+        </div>
+        <div class="area-tags fade-up">
+            <span class="area-tag">Toronto</span>
+            <span class="area-tag">Mississauga</span>
+            <span class="area-tag">Brampton</span>
+            <span class="area-tag">Vaughan</span>
+            <span class="area-tag">Markham</span>
+            <span class="area-tag">Richmond Hill</span>
+            <span class="area-tag">Scarborough</span>
+            <span class="area-tag">Etobicoke</span>
+            <span class="area-tag">North York</span>
+            <span class="area-tag">Oakville</span>
+            <span class="area-tag">Milton</span>
+            <span class="area-tag">Ajax</span>
+            <span class="area-tag">Pickering</span>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+    <div class="cta-inner fade-up">
+        <h2>Ready for a Greener Lawn?</h2>
+        <p>Get your free, no-obligation quote today. We'll assess your property and provide a customized care plan that fits your needs and budget.</p>
+        <a href="mailto:info@greenprolawncare.ca" class="btn-white">
+            📧 info@greenprolawncare.ca
+        </a>
+        <p style="margin-top: 20px; font-size: 16px; opacity: 0.8;">Or call us: <a href="tel:+14165551234" style="color: white; text-decoration: underline;">(416) 555-1234</a></p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="logo-text" style="font-family: 'DM Serif Display', serif;">Green<span style="color: var(--green-light);">Pro</span> Lawn Care</div>
+            <p>Professional lawn care and landscaping services across Toronto and the Greater Toronto Area. Licensed, insured, and committed to quality.</p>
+        </div>
+        <div>
+            <h5>Quick Links</h5>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why">Why Us</a></li>
+                <li><a href="#process">How It Works</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5>Contact</h5>
+            <ul class="footer-contact">
+                <li>📧 info@greenprolawncare.ca</li>
+                <li>📞 (416) 555-1234</li>
+                <li>📍 Serving Toronto & GTA</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2026 GreenPro Lawn Care. All rights reserved.</span>
+        <span>greenprolawncare.ca</span>
+    </div>
+</footer>
+
+<script>
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('visible'), i * 100);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('navLinks').classList.remove('open');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
