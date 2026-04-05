@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 140" width="440" height="140">
+  <rect x="0" y="0" width="440" height="140" rx="20" fill="#1b4332"/>
+  <g transform="translate(25, 20)">
+    <path d="M20,90 Q16,56 6,20 Q20,50 26,90 Z" fill="#40916c" opacity="0.85"/>
+    <path d="M32,90 Q26,44 18,8 Q32,40 36,90 Z" fill="#52b788"/>
+    <path d="M44,90 Q42,36 40,0 Q46,34 50,90 Z" fill="#74c69d"/>
+    <path d="M56,90 Q60,40 68,10 Q60,40 60,90 Z" fill="#95d5b2"/>
+    <path d="M68,90 Q72,56 80,24 Q70,52 70,90 Z" fill="#b7e4c7" opacity="0.85"/>
+  </g>
+  <text x="120" y="62" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="700" font-size="52" fill="#ffffff" letter-spacing="-1">Green<tspan fill="#52b788">Pro</tspan></text>
+  <rect x="120" y="74" width="160" height="2.5" rx="1.25" fill="#52b788" opacity="0.35"/>
+  <text x="122" y="100" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="400" font-size="20" fill="#95d5b2" letter-spacing="6">LAWN CARE</text>
+</svg>
